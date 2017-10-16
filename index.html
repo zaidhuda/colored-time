@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Colored</title>
+    <meta name="description" content="Simple colored page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono:300" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+      <div class="content">
+        <span id="time" class="main-text"></span>
+        <span id="hex" class="main-text" style="display: none"></span>
+        <div class="modes">
+          <a href="#rgb" class="mode-selector">rgb</a>
+          <a href="#rbg" class="mode-selector">rbg</a>
+          <a href="#grb" class="mode-selector">grb</a>
+          <a href="#gbr" class="mode-selector">gbr</a>
+          <a href="#brg" class="mode-selector">brg</a>
+          <a href="#bgr" class="mode-selector">bgr</a>
+          <a href="javascript:null" id="displayToggle">hex</a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <a href="http://zaidhuda.com" target="_blank">zaidhuda.com</a>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
