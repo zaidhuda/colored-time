@@ -37,12 +37,12 @@ main {
 }
 @media only screen and (max-width: 800px){
   .main-text {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 @media only screen and (max-width: 400px){
   .main-text {
-    font-size: 1.4rem;
+    font-size: 3rem;
   }
 }
 footer {
