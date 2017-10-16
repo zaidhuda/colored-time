@@ -15,7 +15,7 @@ $(function() {
       mode = randomMode();
       window.location.hash = mode
     }
-    console.log(mode)
+
     return mode;
   }
 
@@ -30,10 +30,10 @@ $(function() {
   }
 
   function setContrast(rgb) {
-    var o = Math.round(((parseInt(rgb[0]) * 299) +
-                        (parseInt(rgb[1]) * 587) +
-                        (parseInt(rgb[2]) * 114)) / 1000);
-    var fore = (o > 125) ? '#222' : '#ddd';
+    var o = Math.round(((parseInt(rgb.r) * 299) +
+                        (parseInt(rgb.g) * 587) +
+                        (parseInt(rgb.b) * 114)) / 1000);
+    var fore = (o > 128) ? '#222' : '#eee';
     $('body').css('color', fore); 
   }
 
