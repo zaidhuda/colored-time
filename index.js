@@ -4,14 +4,14 @@ $(function() {
   }
 
   function randomMode() {
-    var modes = ['rgb', 'rbg', 'grb', 'gbr', 'brg', 'bgr'];
+    var modes = ['hms','hsm','mhs','msh','shm','smh'];
     return modes[parseInt(Math.random()*(modes.length-1))]
   }
 
   function getMode() {
     var mode = window.location.hash.replace('#', '')
 
-    if (!mode.match(/\b(([rgb])(?!.*\2))+\b/)) {
+    if (!mode.match(/\b(([hms])(?!.*\2))+\b/)) {
       mode = randomMode();
       window.location.hash = mode
     }
@@ -19,13 +19,13 @@ $(function() {
     return mode;
   }
 
-  function rgbMode(rgb, mode) {
+  function timeToRGB(timeRgb, mode) {
     mode = mode.split('')
 
     return {
-      r: rgb[mode[0]],
-      g: rgb[mode[1]],
-      b: rgb[mode[2]]
+      r: timeRgb[mode[0]],
+      g: timeRgb[mode[1]],
+      b: timeRgb[mode[2]]
     };
   }
 
@@ -43,12 +43,12 @@ $(function() {
         m = d.getMinutes(),
         s = d.getSeconds(),
 
-        rgb = {
-          r: parseInt(h/24*255),
-          g: parseInt(m/60*255),
-          b: parseInt(s/60*255)
+        timeRgb = {
+          h: parseInt(h/24*255),
+          m: parseInt(m/60*255),
+          s: parseInt(s/60*255)
         },
-        color = rgbMode(rgb, mode),
+        color = timeToRGB(timeRgb, mode),
         hex = rgbToHex(color);
 
     if (h.toString().length < 2) { h = '0' + h }
@@ -72,12 +72,16 @@ $(function() {
   initialize();
 
   $('.mode-selector').on('click', function() {
-    refresh(getMode())
+    $('.mode-selector').removeClass('active');
+    $(this).addClass('active');
+    refresh(getMode());
   })
 
   $('#displayToggle').on('click', function() {
-    $(this).html( $(this).html() == 'hex' ? 'time' : 'hex')
+    $(this).html( $(this).html() == 'hex' ? 'time' : 'hex');
     $('#time').toggle();
     $('#hex').toggle();
   })
+
+  $(window.location.hash).addClass('active');
 })

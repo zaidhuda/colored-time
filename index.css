@@ -53,7 +53,9 @@ footer {
 a {
   text-decoration: none;
   color: inherit !important;
+  outline: none;
 }
-#shareLink {
-  position: absolute;
+.mode-selector.active {
+  text-decoration: underline;
+  text-underline-position: under;
 }
