@@ -83,8 +83,19 @@ function refresh(mode) {
   }
 }
 
+function downloadCanvas() {
+  if (confirm('Save image?')) {
+    const canvas = document.getElementById('canvas');
+    const link = document.createElement('a');
+    link.download = `colored-time-graph-${getMode()}.png`;
+    link.href = canvas.toDataURL();
+    link.click();
+  }
+}
+
 function initialize() {
   const canvas = document.getElementById('canvas');
+  canvas.addEventListener('click', downloadCanvas);
 
   if (canvas.getContext) {
     const ctx = canvas.getContext('2d');
